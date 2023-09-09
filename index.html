@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="Stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <h2 id="day">
+        <strong>Friday</strong>
+      </h2>
+      <p id="date">21 July 2023</p>
+      <p id="time">17:39</p>
+      <form id="search-form">
+        <div class="searchbar">
+          <input
+            type="text"
+            placeholder="Which city do you live in?"
+            id="query"
+          />
+          <button type="submit" class="Search">
+            <img src="src/search.png" />
+          </button>
+        </div>
+      </form>
+      <div class="daysofweek">
+        <ul>
+          <li class="sat">
+            <span class="dayname">Sat</span>
+            <img src="src/sat.png" />
+            <span class="temperature">9°C</span>
+          </li>
+          <li class="sun">
+            <span class="dayname">Sun</span>
+            <img src="src/sun.png" />
+            <span class="temperature">16°C</span>
+          </li>
+          <li class="mon">
+            <span class="dayname">Mon</span>
+            <img src="src/mon.png" />
+            <span class="temperature">7°C</span>
+          </li>
+          <li class="tue">
+            <span class="dayname">Tue</span>
+            <img src="src/tue.png" />
+            <span class="temperature">11°C</span>
+          </li>
+        </ul>
+      </div>
+      <img src="src/weathericon.png" class="weathericon" />
+      <p class="weather1" id="weather1"><strong>10°C</strong></p>
+      <p id="currentTemp"><strong> Cloudy</strong></p>
+      <img src="src/locationicon.png" class="locationicon" />
+      <p class="city" id="city">Tehran</p>
+    </div>
+    <p class="codedby">Coded by Zahra Darvishi</p>
+    <script src="src/script.js"></script>
+  </body>
+</html>
