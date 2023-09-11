@@ -95,14 +95,17 @@ h2 {
   margin-left: -28px;
   display: flex;
   margin-top: 40px;
+  font-weight: bold;
 }
-#currentTemp {
+#description {
   color: rgb(255, 255, 255);
   font-family: "Rubik", sans-serif;
   font-size: 15px;
   display: flex;
   margin-top: -33px;
   margin-left: 9px;
+  text-transform: capitalize;
+  font-weight: bold;
 }
 .city {
   color: white;
@@ -182,4 +185,22 @@ li:hover {
 }
 .github {
   color: rgb(220, 223, 135);
+}
+#humidity {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  font-size: 15px;
+  margin-bottom: -120px;
+  margin-left: 130px;
+  margin-top: 64px;
+}
+#wind {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  font-size: 15px;
+  margin-bottom: -70px;
+  margin-left: 300px;
+  margin-top: 103px;
 }

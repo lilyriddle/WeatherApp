@@ -120,6 +120,12 @@ function displayTemperature(response) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature) + "°C ";
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
+  let weatherdescription = document.querySelector("#description");
+  weatherdescription.innerHTML = response.data.weather[0].description;
+  let humidityElement = document.querySelector("#humidity1");
+  humidityElement.innerHTML = response.data.main.humidity;
+  let windspeedElement = document.querySelector("#wind1");
+  windspeedElement.innerHTML = Math.round(response.data.wind.speed);
   getForecast(response.data.name);
 }
 function search(city) {
