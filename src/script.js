@@ -33,10 +33,10 @@ let dayElement = document.querySelector("#day");
 dayElement.innerHTML = `${days[day]}`;
 dateElement.innerHTML = `${date} ${months[month]} ${year}`;
 
-if (0 <= hours < 10) {
+if (hours < 10) {
   hours = `0${hours}`;
 }
-if (0 <= minutes < 1) {
+if (minutes < 1) {
   minutes = `0${minutes}`;
 }
 let timeElement = document.querySelector("#time");
