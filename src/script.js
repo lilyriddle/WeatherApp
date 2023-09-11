@@ -115,9 +115,9 @@ function getForecast(city) {
 }
 function displayTemperature(response) {
   console.log(response.data);
-  let temperatureElement = document.querySelector("#weather1");
+  let temperatureElement = document.querySelector("#weather11");
   celsiusTemperature = response.data.main.temp;
-  temperatureElement.innerHTML = Math.round(celsiusTemperature) + "°C ";
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
   let weatherdescription = document.querySelector("#description");
