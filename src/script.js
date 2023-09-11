@@ -34,13 +34,13 @@ dayElement.innerHTML = `${days[day]}`;
 dateElement.innerHTML = `${date} ${months[month]} ${year}`;
 
 if (hours < 10) {
-  hours = `0${hours}`;
+  hours = `,0${hours}`;
 }
 if (minutes < 1) {
   minutes = `0${minutes}`;
 }
 let timeElement = document.querySelector("#time");
-timeElement.innerHTML = `${hours}:${minutes}`;
+timeElement.innerHTML = `,${hours}:${minutes}`;
 //**search city* */
 //function search(event) {
 //event.preventDefault();
