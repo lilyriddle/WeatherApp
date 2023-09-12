@@ -123,6 +123,8 @@ function displayTemperature(response) {
   let weatherdescription = document.querySelector("#description");
   weatherdescription.innerHTML = response.data.weather[0].description;
   let humidityElement = document.querySelector("#humidity1");
+
+  celsius = response.data.main.temp;
   humidityElement.innerHTML = response.data.main.humidity;
   let windspeedElement = document.querySelector("#wind1");
   windspeedElement.innerHTML = Math.round(response.data.wind.speed);
@@ -139,6 +141,18 @@ function citySubmit(event) {
   console.log(cityInputElement.value);
   search(cityInputElement.value);
 }
-search("Tehran");
+
+function showfahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheitconvertor = (celsius * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#weather11");
+  temperatureElement.innerHTML = Math.round(fahrenheitconvertor);
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", citySubmit);
+let celsius = null;
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", showfahrenheitTemp);
+
+search("Tehran");
