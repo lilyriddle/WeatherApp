@@ -102,8 +102,8 @@ h2 {
   font-family: "Rubik", sans-serif;
   font-size: 15px;
   display: flex;
-  margin-top: -33px;
-  margin-left: 30px;
+  margin-top: -10px;
+  margin-left: -29px;
   text-transform: capitalize;
   font-weight: bold;
 }
@@ -113,16 +113,15 @@ h2 {
   margin-left: -28px;
   display: flex;
   font-size: 15px;
-  margin-top: -10px;
+  margin-top: -14px;
   margin-bottom: 0px;
-  margin-left: -12px;
-  margin-top: -15px;
+  margin-left: -10px;
 }
 .locationicon {
   display: flex;
   width: 14px;
   height: 15px;
-  margin-top: -210px;
+  margin-top: -230px;
   margin-left: -28px;
 }
 ul {
@@ -191,18 +190,18 @@ li:hover {
   font-family: "Rubik", sans-serif;
   display: flex;
   font-size: smaller;
-  margin-bottom: 190px;
+  margin-bottom: 170px;
   margin-left: -30px;
-  margin-top: 177px;
+  margin-top: 198px;
 }
 #wind {
   color: white;
   font-family: "Rubik", sans-serif;
   display: flex;
   font-size: smaller;
-  margin-bottom: -70px;
+  margin-bottom: -83px;
   margin-left: -28px;
-  margin-top: -190px;
+  margin-top: -170px;
 }
 #windicon {
   display: flex;
@@ -217,4 +216,21 @@ li:hover {
   height: 15px;
   margin-top: -1px;
   margin-left: 25px;
+}
+.active {
+  cursor: default;
+  text-decoration: none;
+  color: rgb(220, 223, 135);
+}
+.active:hover {
+  text-decoration: none;
+}
+#fahrenheit {
+  color: rgb(220, 223, 135);
+}
+#celsiuslink {
+  color: rgb(220, 223, 135);
+}
+a .active {
+  color: rgb(220, 223, 135);
 }

@@ -147,6 +147,16 @@ function showfahrenheitTemp(event) {
   let fahrenheitconvertor = (celsius * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#weather11");
   temperatureElement.innerHTML = Math.round(fahrenheitconvertor);
+  celsiuslink.classList.remove("active");
+  fahrenheit.classList.add("active");
+}
+
+function showcelsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#weather11");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  celsiuslink.classList.add("active");
+  fahrenheit.classList.remove("active");
 }
 
 let form = document.querySelector("#search-form");
@@ -154,5 +164,8 @@ form.addEventListener("submit", citySubmit);
 let celsius = null;
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", showfahrenheitTemp);
+
+let celsiuslink = document.querySelector("#celsiuslink");
+celsiuslink.addEventListener("click", showcelsiusTemp);
 
 search("Tehran");
