@@ -113,6 +113,7 @@ function getForecast(city) {
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
+
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#weather11");
@@ -123,6 +124,21 @@ function displayTemperature(response) {
   let weatherdescription = document.querySelector("#description");
   weatherdescription.innerHTML = response.data.weather[0].description;
   let humidityElement = document.querySelector("#humidity1");
+
+  let weathericon = document.querySelector(".weathericon");
+  if (response.data.weather[0].main == "Clouds") {
+    weathericon.src = "src/tue.png";
+  } else if (response.data.weather[0].main == "Clear") {
+    weathericon.src = "src/sun.png";
+  } else if (response.data.weather[0].main == "Rain") {
+    weathericon.src = "src/mon.png";
+  } else if (response.data.weather[0].main == "Drizzle") {
+    weathericon.src = "src/drizzle.png";
+  } else if (response.data.weather[0].main == "Mist") {
+    weathericon.src = "src/mist.png";
+  } else if (response.data.weather[0].main == "Snow") {
+    weathericon.src = "src/sat.png";
+  }
 
   celsius = response.data.main.temp;
   humidityElement.innerHTML = response.data.main.humidity;
