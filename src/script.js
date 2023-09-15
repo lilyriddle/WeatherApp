@@ -106,10 +106,19 @@ timeElement.innerHTML = `,${hours}:${minutes}`;
 //"q=Tokyo"
 //q=Sydney&appid=90d72f4d79ee675be564dad22ec4ce52&units=metric
 
-function getForecast(city) {
-  console.log(city);
-  let apiKey = "90d72f4d79ee675be564dad22ec4ce52";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?&q=${city}&appid=${apiKey}&units=metric`;
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast1");
+
+  forecastElement.innerHTML = `<span class="dayname">Sat</span>
+            <img src="src/sat.png" />
+            <span class="temperature">7°C</span>`;
+}
+
+function getForecast(coord) {
+  let apiKey = "a2dda52dce059eb8a14e95aaa0db6ab7";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=${apiKey}&units=metric`;
+
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
@@ -144,10 +153,10 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   let windspeedElement = document.querySelector("#wind1");
   windspeedElement.innerHTML = Math.round(response.data.wind.speed);
-  getForecast(response.data.name);
+  getForecast(response.data.coord);
 }
 function search(city) {
-  let apiKey = "90d72f4d79ee675be564dad22ec4ce52";
+  let apiKey = "a2dda52dce059eb8a14e95aaa0db6ab7";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?&q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -178,6 +187,7 @@ function showcelsiusTemp(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", citySubmit);
 let celsius = null;
+
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", showfahrenheitTemp);
 
