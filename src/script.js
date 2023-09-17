@@ -106,13 +106,76 @@ timeElement.innerHTML = `,${hours}:${minutes}`;
 //"q=Tokyo"
 //q=Sydney&appid=90d72f4d79ee675be564dad22ec4ce52&units=metric
 
-function displayForecast(response) {
-  console.log(response.data.daily);
-  let forecastElement = document.querySelector("#forecast1");
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-  forecastElement.innerHTML = `<span class="dayname">Sat</span>
-            <img src="src/sat.png" />
-            <span class="temperature">7°C</span>`;
+  return days[day];
+}
+function getWeatherIcon(iconCode) {
+  let iconMappings = {
+    "01d": "src/sun.png",
+    "02d": "src/tue.png",
+    "03d": "src/tue.png",
+    "04d": "src/tue.png",
+    "09d": "src/mon.png",
+    "10d": "src/mon.png",
+    "11d": "src/drizzle.png",
+    "13d": "src/sat.png",
+    "50d": "src/mist.png",
+    "01n": "src/sun.png",
+    "02n": "src/tue.png",
+    "03n": "src/tue.png",
+    "04n": "src/tue.png",
+    "09n": "src/mon.png",
+    "10n": "src/mon.png",
+    "11n": "src/drizzle.png",
+    "13n": "src/sat.png",
+    "50n": "src/mist.png",
+  };
+  return iconMappings[iconCode] || "src/mist.png";
+}
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast1");
+  console.log(response.data.daily);
+  let forecastHTML = `<div class="daysofweek">`;
+
+  forecast.forEach(function (forecastday, index) {
+    if (index < 4) {
+      let weatherIconCode = forecastday.weather[0].icon;
+      forecastHTML =
+        forecastHTML +
+        `
+        <ul>
+          <li class="sat" id="forecast1">
+            <span class="dayname">${formatDay(forecastday.dt)}</span>
+            <img src="${getWeatherIcon(
+              weatherIconCode
+            )}" class="forecasticon"  />
+            <span class="temperature">${Math.round(
+              forecastday.temp.day
+            )}°C</span>
+          </li><ul>`;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  if (response.data.weather[0].main == "Clouds") {
+    hi = "src/tue.png";
+  } else if (response.data.weather[0].main == "Clear") {
+    hi = "src/sun.png";
+  } else if (response.data.weather[0].main == "Rain") {
+    hi = "src/mon.png";
+  } else if (response.data.weather[0].main == "Drizzle") {
+    hi = "src/drizzle.png";
+  } else if (response.data.weather[0].main == "Mist") {
+    hi = "src/mist.png";
+  } else if (response.data.weather[0].main == "Snow") {
+    hi = "src/sat.png";
+  }
 }
 
 function getForecast(coord) {

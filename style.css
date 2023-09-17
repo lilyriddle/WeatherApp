@@ -130,7 +130,7 @@ ul {
 li {
   display: block;
   float: left;
-  padding: 11px;
+  padding: 9px;
   cursor: pointer;
   color: white;
   font-family: "Quicksand", sans-serif;
@@ -138,8 +138,8 @@ li {
 .daysofweek {
   position: fixed;
   list-style-type: none;
-  padding: 0;
-  margin-left: 100px;
+  padding: 10;
+  margin-left: 20px;
   font-size: 20px;
 }
 li:hover {
